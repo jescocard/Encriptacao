@@ -28,32 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            System.Windows.Forms.Label labelPathAspNetRegiis;
+            this.labelPathArquivoConfig = new System.Windows.Forms.Label();
             this.PathArquivoConfig = new System.Windows.Forms.TextBox();
             this.PathAspNetRegiis = new System.Windows.Forms.TextBox();
-            this.buscadorDePasta = new System.Windows.Forms.FolderBrowserDialog();
+            this.buscadorDePastaAspNetRegiis = new System.Windows.Forms.FolderBrowserDialog();
+            this.buscadorDePastaArquivoConfig = new System.Windows.Forms.FolderBrowserDialog();
+            labelPathAspNetRegiis = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // labelPathAspNetRegiis
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "PathAspNetRegiis:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            labelPathAspNetRegiis.AutoSize = true;
+            labelPathAspNetRegiis.Location = new System.Drawing.Point(13, 30);
+            labelPathAspNetRegiis.Name = "labelPathAspNetRegiis";
+            labelPathAspNetRegiis.Size = new System.Drawing.Size(121, 16);
+            labelPathAspNetRegiis.TabIndex = 0;
+            labelPathAspNetRegiis.Text = "PathAspNetRegiis:";
+            labelPathAspNetRegiis.Click += new System.EventHandler(this.labelPathAspNetRegiis_Click);
             // 
-            // label2
+            // labelPathArquivoConfig
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "PathArquivoConfig:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.labelPathArquivoConfig.AutoSize = true;
+            this.labelPathArquivoConfig.Location = new System.Drawing.Point(13, 61);
+            this.labelPathArquivoConfig.Name = "labelPathArquivoConfig";
+            this.labelPathArquivoConfig.Size = new System.Drawing.Size(121, 16);
+            this.labelPathArquivoConfig.TabIndex = 1;
+            this.labelPathArquivoConfig.Text = "PathArquivoConfig:";
+            this.labelPathArquivoConfig.Click += new System.EventHandler(this.labelPathArquivoConfig_Click);
             // 
             // PathArquivoConfig
             // 
@@ -62,6 +64,7 @@
             this.PathArquivoConfig.ReadOnly = true;
             this.PathArquivoConfig.Size = new System.Drawing.Size(647, 22);
             this.PathArquivoConfig.TabIndex = 2;
+            this.PathArquivoConfig.Click += new System.EventHandler(this.PathArquivoConfig_Click);
             // 
             // PathAspNetRegiis
             // 
@@ -70,11 +73,13 @@
             this.PathAspNetRegiis.ReadOnly = true;
             this.PathAspNetRegiis.Size = new System.Drawing.Size(647, 22);
             this.PathAspNetRegiis.TabIndex = 3;
+            this.PathAspNetRegiis.Click += new System.EventHandler(this.PathAspNetRegiis_Click);
             // 
-            // buscadorDePasta
+            // buscadorDePastaAspNetRegiis
             // 
-            this.buscadorDePasta.RootFolder = System.Environment.SpecialFolder.ApplicationData;
-            this.buscadorDePasta.ShowNewFolderButton = false;
+            this.buscadorDePastaAspNetRegiis.RootFolder = System.Environment.SpecialFolder.ApplicationData;
+            this.buscadorDePastaAspNetRegiis.ShowNewFolderButton = false;
+            this.buscadorDePastaAspNetRegiis.HelpRequest += new System.EventHandler(this.buscadorDePastaAspNetRegiis_HelpRequest);
             // 
             // Form1
             // 
@@ -83,8 +88,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.PathAspNetRegiis);
             this.Controls.Add(this.PathArquivoConfig);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelPathArquivoConfig);
+            this.Controls.Add(labelPathAspNetRegiis);
             this.Name = "Form1";
             this.Text = "Encriptação";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -94,12 +99,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelPathArquivoConfig;
         private System.Windows.Forms.TextBox PathArquivoConfig;
         private System.Windows.Forms.TextBox PathAspNetRegiis;
-        private System.Windows.Forms.FolderBrowserDialog buscadorDePasta;
+        private System.Windows.Forms.FolderBrowserDialog buscadorDePastaAspNetRegiis;
+        private System.Windows.Forms.FolderBrowserDialog buscadorDePastaArquivoConfig;
     }
 }
 

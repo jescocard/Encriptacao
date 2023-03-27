@@ -21,14 +21,29 @@ namespace DesktopApp
         {
 
         }
-        private void label1_Click(object sender, EventArgs e)
+        private void labelPathAspNetRegiis_Click(object sender, EventArgs e)
         {
-            
+            buscadorDePastaAspNetRegiis.ShowDialog();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void labelPathArquivoConfig_Click(object sender, EventArgs e)
         {
+            buscadorDePastaArquivoConfig.ShowDialog();   
+        }
 
+        private void PathAspNetRegiis_Click(object sender, EventArgs e)
+        {
+            buscadorDePastaAspNetRegiis.ShowDialog();
+        }
+
+        private void PathArquivoConfig_Click(object sender, EventArgs e)
+        {
+            buscadorDePastaAspNetRegiis.ShowDialog();
+        }
+
+        private void buscadorDePastaAspNetRegiis_HelpRequest(object sender, EventArgs e)
+        {
+            PathAspNetRegiis.Text = buscadorDePastaAspNetRegiis.SelectedPath;
         }
     }
 }
