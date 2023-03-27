@@ -8,7 +8,6 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            //Teste
             var pathArquivoConfiguracao = $"{AppDomain.CurrentDomain.BaseDirectory}EncriptacaoArquivosConfiguracao.json";
             if (!File.Exists(pathArquivoConfiguracao))
             {
