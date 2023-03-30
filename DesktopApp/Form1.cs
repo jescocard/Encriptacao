@@ -23,27 +23,80 @@ namespace DesktopApp
         }
         private void labelPathAspNetRegiis_Click(object sender, EventArgs e)
         {
-            buscadorDePastaAspNetRegiis.ShowDialog();
+            getPathAspNetReggis();
         }
-
-        private void labelPathArquivoConfig_Click(object sender, EventArgs e)
-        {
-            buscadorDePastaArquivoConfig.ShowDialog();   
-        }
-
         private void PathAspNetRegiis_Click(object sender, EventArgs e)
         {
-            buscadorDePastaAspNetRegiis.ShowDialog();
+            getPathAspNetReggis();
         }
-
+        private void getPathAspNetReggis()
+        {
+            var resposta = buscadorDePastaAspNetRegiis.ShowDialog();
+            if (DialogResult.OK == resposta)
+                PathAspNetRegiis.Text = buscadorDePastaAspNetRegiis.SelectedPath;
+        }
+        private void labelPathArquivoConfig_Click(object sender, EventArgs e)
+        {
+            getPathArquivoConfig();
+        }
         private void PathArquivoConfig_Click(object sender, EventArgs e)
         {
-            buscadorDePastaAspNetRegiis.ShowDialog();
+            getPathArquivoConfig();   
+        }
+        private void getPathArquivoConfig()
+        {
+            var resposta = buscadorDePastaArquivoConfig.ShowDialog();
+            if (DialogResult.OK == resposta)
+                PathArquivoConfig.Text = buscadorDePastaArquivoConfig.SelectedPath;
         }
 
         private void buscadorDePastaAspNetRegiis_HelpRequest(object sender, EventArgs e)
         {
-            PathAspNetRegiis.Text = buscadorDePastaAspNetRegiis.SelectedPath;
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Replace_CheckedChanged(object sender, EventArgs e)
+        {
+            replaceBox.Visible = Replace.Checked;
+            replaceGrid.Rows.Clear();
+        }
+
+        private void novoValorLabel_Click(object sender, EventArgs e)
+        {
+            novoValor.Focus();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            replaceGrid.CommitEdit(DataGridViewDataErrorContexts.Commit);
+        }
+
+        private void adicionarButton_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(valorAtual.Text)) 
+            {
+                MessageBox.Show(this, "Informe: Valor Atual");
+            }
+            else
+            {
+                replaceGrid.Rows.Add(new object[] { valorAtual.Text, novoValor.Text, false });
+                valorAtual.Text = novoValor.Text = "";
+            }
+        }
+
+        private void valorAtualLabel_Click(object sender, EventArgs e)
+        {
+            valorAtual.Focus();
+        }
+
+        private void replaceBox_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
