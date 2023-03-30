@@ -73,7 +73,16 @@ namespace DesktopApp
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            replaceGrid.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            if (e.RowIndex >= 0) 
+            {
+                var coluna = replaceGrid.Rows[e.RowIndex];
+                if(coluna != null)
+                {
+                    coluna.Cells["colunaCheckbox"].Value = !bool.Parse(coluna.Cells["colunaCheckbox"].Value + "");
+                    replaceGrid.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                }
+            }
+            
         }
 
         private void adicionarButton_Click(object sender, EventArgs e)
@@ -97,6 +106,19 @@ namespace DesktopApp
         private void replaceBox_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void botaoRemoverGrid_Click(object sender, EventArgs e)
+        {
+            
+            if(replaceGrid.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow item in replaceGrid.Rows)
+                {
+                    if (bool.Parse(item.Cells["colunaCheckbox"].Value + ""))
+                        replaceGrid.Rows.Remove(item);
+                }
+            }
         }
     }
 }

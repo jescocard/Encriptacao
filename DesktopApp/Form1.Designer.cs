@@ -41,15 +41,15 @@
             this.replaceBox = new System.Windows.Forms.GroupBox();
             this.botaoRemoverGrid = new System.Windows.Forms.Button();
             this.replaceGrid = new System.Windows.Forms.DataGridView();
+            this.ColunaValorAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColunaNovoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colunaCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.adicionarButton = new System.Windows.Forms.Button();
             this.novoValor = new System.Windows.Forms.TextBox();
             this.novoValorLabel = new System.Windows.Forms.Label();
             this.valorAtual = new System.Windows.Forms.TextBox();
             this.valorAtualLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.ColunaValorAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColunaNovoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colunaCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             labelPathAspNetRegiis = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.replaceBox.SuspendLayout();
@@ -181,6 +181,7 @@
             this.botaoRemoverGrid.TabIndex = 6;
             this.botaoRemoverGrid.Text = "Remover";
             this.botaoRemoverGrid.UseVisualStyleBackColor = true;
+            this.botaoRemoverGrid.Click += new System.EventHandler(this.botaoRemoverGrid_Click);
             // 
             // replaceGrid
             // 
@@ -205,6 +206,33 @@
             this.replaceGrid.Size = new System.Drawing.Size(500, 122);
             this.replaceGrid.TabIndex = 5;
             this.replaceGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // ColunaValorAtual
+            // 
+            this.ColunaValorAtual.HeaderText = "Valor Atual";
+            this.ColunaValorAtual.MinimumWidth = 6;
+            this.ColunaValorAtual.Name = "ColunaValorAtual";
+            this.ColunaValorAtual.ReadOnly = true;
+            this.ColunaValorAtual.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColunaValorAtual.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColunaValorAtual.Width = 235;
+            // 
+            // ColunaNovoValor
+            // 
+            this.ColunaNovoValor.HeaderText = "Novo Valor";
+            this.ColunaNovoValor.MinimumWidth = 6;
+            this.ColunaNovoValor.Name = "ColunaNovoValor";
+            this.ColunaNovoValor.ReadOnly = true;
+            this.ColunaNovoValor.Width = 235;
+            // 
+            // colunaCheckbox
+            // 
+            this.colunaCheckbox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colunaCheckbox.DataPropertyName = "Remover";
+            this.colunaCheckbox.HeaderText = "";
+            this.colunaCheckbox.Name = "colunaCheckbox";
+            this.colunaCheckbox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colunaCheckbox.Width = 27;
             // 
             // adicionarButton
             // 
@@ -265,33 +293,6 @@
             this.button1.Text = "Executar";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // ColunaValorAtual
-            // 
-            this.ColunaValorAtual.HeaderText = "Valor Atual";
-            this.ColunaValorAtual.MinimumWidth = 6;
-            this.ColunaValorAtual.Name = "ColunaValorAtual";
-            this.ColunaValorAtual.ReadOnly = true;
-            this.ColunaValorAtual.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColunaValorAtual.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColunaValorAtual.Width = 235;
-            // 
-            // ColunaNovoValor
-            // 
-            this.ColunaNovoValor.HeaderText = "Novo Valor";
-            this.ColunaNovoValor.MinimumWidth = 6;
-            this.ColunaNovoValor.Name = "ColunaNovoValor";
-            this.ColunaNovoValor.ReadOnly = true;
-            this.ColunaNovoValor.Width = 235;
-            // 
-            // colunaCheckbox
-            // 
-            this.colunaCheckbox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colunaCheckbox.DataPropertyName = "Remover";
-            this.colunaCheckbox.HeaderText = "";
-            this.colunaCheckbox.Name = "colunaCheckbox";
-            this.colunaCheckbox.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colunaCheckbox.Width = 27;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -305,6 +306,7 @@
             this.Controls.Add(this.labelPathArquivoConfig);
             this.Controls.Add(labelPathAspNetRegiis);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Encriptação";
             this.Load += new System.EventHandler(this.Form1_Load);
